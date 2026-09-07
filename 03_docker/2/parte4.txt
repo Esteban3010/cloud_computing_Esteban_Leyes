@@ -1,0 +1,8 @@
+En este ejercicio, Nginx funciona como reverse proxy, recibiendo las solicitudes y enviándolas al servicio correspondiente según la ruta:
+
+/api/users/    servicio users
+/api/products/ servicio products
+
+Esto no es balanceamiento de carga, porque cada ruta apunta a un único servicio y no se distribuyen las solicitudes entre varias instancias.
+
+Por lo tanto, en esta parte se utiliza reverse proxy + routing.

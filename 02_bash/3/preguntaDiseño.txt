@@ -1,0 +1,4 @@
+Pregunta:
+Explique por qué Docker Compose resulta más conveniente que ejecutar manualmente varios docker run cuando un sistema comienza a tener múltiples servicios.
+
+- Docker Compose es más conveniente porque permite definir y administrar varios servicios desde un solo archivo docker-compose.yml. Así se pueden iniciar, detener y configurar todos los contenedores juntos con comandos simples, evitando tener que ejecutar varios docker run manualmente.

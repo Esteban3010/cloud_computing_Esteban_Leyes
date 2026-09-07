@@ -1,0 +1,20 @@
+services:
+  users1:
+    build: ./users
+  
+  users2:
+    build: ./users
+ 
+  products:
+    build: ./products
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - users1
+      - users2
+      - products

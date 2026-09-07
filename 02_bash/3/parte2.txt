@@ -1,0 +1,19 @@
+1. ¿Por qué el cambio aparece sin reconstruir la imagen?
+
+Porque se está usando un volumen, que conecta la carpeta html del computador directamente con el contenedor. Por eso los cambios se reflejan sin reconstruir la imagen.
+
+2. ¿Qué función cumple :ro?
+
+:ro significa read only (solo lectura). Permite que el contenedor lea los archivos del volumen, pero no los modifique.
+
+3. ¿Cuál es la diferencia entre el puerto 8080 y el 80?
+
+El puerto 8080 es el que usamos en nuestro computador para acceder al servicio, mientras que el 80 es el puerto que utiliza Nginx dentro del contenedor.
+
+4. ¿Qué parte representa el host y qué parte representa el contenedor?
+
+En:
+
+8080:80
+
+8080 representa el puerto del host (nuestro computador) y 80 representa el puerto del contenedor.

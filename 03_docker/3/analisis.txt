@@ -1,0 +1,20 @@
+¿Dónde se encuentra el estado del negocio?
+El estado del negocio se encuentra en PostgreSQL, porque allí se almacenan los productos y sus datos.
+
+¿Por qué las APIs pueden ser stateless?
+Porque las APIs no guardan los datos internamente. Todas consultan la información directamente desde PostgreSQL.
+
+¿Qué ocurre si una API reinicia?
+No se pierden los datos, porque estos están almacenados en PostgreSQL. La API puede volver a conectarse a la base de datos al iniciar.
+
+¿Qué ocurre si PostgreSQL reinicia?
+Las APIs no podrán consultar ni modificar los productos mientras la base de datos esté caída. Si los datos están almacenados de forma persistente, volverán a estar disponibles cuando PostgreSQL inicie nuevamente.
+
+¿Dónde existen puntos únicos de falla?
+Nginx y PostgreSQL pueden ser puntos únicos de falla, porque si alguno deja de funcionar puede afectar todo el sistema.
+
+¿El balanceamiento de API soluciona el escalamiento de la base de datos?
+No. El balanceamiento distribuye las solicitudes entre las APIs, pero todas siguen utilizando la misma base de datos PostgreSQL.
+
+¿Qué mecanismos podrían añadirse en una arquitectura de producción?
+Se podrían añadir réplicas de base de datos, copias de seguridad, monitoreo, recuperación automática de servicios, seguridad, más balanceadores y almacenamiento persistente.

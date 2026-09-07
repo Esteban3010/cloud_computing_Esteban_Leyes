@@ -1,0 +1,17 @@
+1. ¿Qué diferencia existe entre tabla y colección?
+Una tabla en PostgreSQL organiza los datos en filas y columnas con una estructura definida. Una colección en MongoDB almacena documentos y permite una estructura más flexible.
+
+2. ¿Qué diferencia existe entre fila y documento?
+Una fila contiene los datos de un registro siguiendo las columnas de una tabla. Un documento en MongoDB almacena la información mediante campos y puede incluir estructuras más complejas, como objetos y listas.
+
+3. ¿Qué ventaja ofrecen los documentos anidados?
+Permiten guardar información relacionada dentro de un mismo documento. Por ejemplo, una orden puede contener directamente la lista de productos y sus cantidades.
+
+4. ¿Qué riesgos tiene duplicar datos en documentos?
+Puede generar inconsistencias, ya que al modificar un dato puede ser necesario actualizarlo en varios documentos. También aumenta el espacio de almacenamiento utilizado.
+
+5. ¿Qué tipos de aplicaciones podrían beneficiarse de MongoDB?
+Aplicaciones que manejan datos flexibles o que pueden cambiar frecuentemente, como tiendas en línea, aplicaciones web, redes sociales y sistemas que almacenan información en formatos variados.
+
+6. ¿Qué modelo resulta más adecuado para el ejercicio universitario y por qué?
+MongoDB resulta adecuado para este ejercicio porque permite representar fácilmente productos, clientes y órdenes, especialmente al guardar los productos de una orden como documentos anidados.

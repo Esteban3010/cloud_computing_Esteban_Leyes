@@ -1,0 +1,20 @@
+1. ¿Por qué el cliente solamente conoce localhost:8080?
+Porque el cliente se comunica únicamente con Nginx mediante el puerto 8080. Nginx se encarga de enviar las solicitudes a las diferentes instancias de la API.
+
+2. ¿Qué función cumple upstream?
+upstream define el grupo de servidores o instancias (api1, api2 y api3) entre los que Nginx distribuye las solicitudes.
+
+3. ¿Qué estrategia utiliza Nginx por defecto en este escenario?
+Utiliza Round Robin, que distribuye las solicitudes entre las diferentes instancias disponibles.
+
+4. ¿Qué ocurre al detener api2?
+api2 deja de responder solicitudes y Nginx continúa enviándolas a las instancias disponibles, api1 y api3, como vimos en la prueba.
+
+5. ¿Qué componente podría convertirse en un punto único de falla?
+Nginx, porque todas las solicitudes pasan por él. Si Nginx falla, el cliente no podría acceder a las APIs aunque estas sigan funcionando.
+
+6. ¿Por qué este diseño representa escalamiento horizontal?
+Porque se utilizan varias instancias de la misma API para repartir la carga, en lugar de aumentar los recursos de una sola instancia.
+
+7. ¿Qué tendría que cambiar para tener cinco instancias?
+Se tendrían que agregar api4 y api5 en docker-compose.yml y también agregarlas al upstream de Nginx.

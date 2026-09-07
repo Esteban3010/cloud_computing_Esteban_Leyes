@@ -1,0 +1,14 @@
+1. ¿Cuál instrucción se comporta como valor por defecto?
+CMD se comporta como un valor por defecto, ya que puede ser reemplazado al pasar otro comando o argumento en docker run.
+
+2. ¿Cuál instrucción define el programa principal del contenedor?
+ENTRYPOINT define el programa principal que ejecutará el contenedor.
+
+3. ¿Qué sucede con CMD cuando se pasa un comando al final de docker run?
+El contenido de CMD es reemplazado por lo que se pasa al final de docker run.
+
+4. ¿Por qué ENTRYPOINT es útil cuando queremos que el contenedor se comporte como una herramienta concreta?
+Porque permite dejar un programa fijo que siempre se ejecutará, mientras que lo escrito en docker run se utiliza como argumento para ese programa.
+
+5. ¿Qué combinación utilizaría para crear un script que tenga un ejecutable fijo pero permita modificar parámetros?
+Utilizaría ENTRYPOINT + CMD. ENTRYPOINT establece el ejecutable fijo y CMD establece los parámetros por defecto que pueden ser reemplazados.

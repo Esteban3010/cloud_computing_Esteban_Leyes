@@ -1,0 +1,11 @@
+¿Qué función cumple #!/bin/bash?
+Indica que el script debe ejecutarse utilizando Bash como intérprete.
+
+¿Qué diferencia existe entre bash saludo.sh y ./saludo.sh?
+bash saludo.sh ejecuta el archivo usando Bash directamente. ./saludo.sh ejecuta el archivo como programa y necesita permisos de ejecución.
+
+¿Qué ocurre si el archivo no tiene permisos de ejecución?
+No se podrá ejecutar con ./saludo.sh y aparecerá un error de permiso denegado.
+
+¿Qué información devuelve $? después de ejecutar un comando?
+Devuelve el código de salida del último comando ejecutado. Normalmente 0 significa que se ejecutó correctamente y un valor diferente de 0 indica un error.

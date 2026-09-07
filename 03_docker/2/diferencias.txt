@@ -1,0 +1,15 @@
+En el primer escenario se utiliza reverse proxy con routing. Nginx recibe las solicitudes y las dirige a un servicio específico dependiendo de la ruta:
+
+/api/users/ -> users
+/api/products/ -> products
+
+En este caso no existe balanceamiento, ya que cada ruta dirige las solicitudes a una única instancia del servicio.
+
+En el segundo escenario se utiliza reverse proxy con load balancing. Se crearon dos instancias del servicio users y Nginx distribuye las solicitudes entre ambas.
+
+Al realizar varias solicitudes a /api/users/ se obtuvieron dos identificadores de instancia diferentes:
+
+63ba0499d781
+59ba8ebd0918
+
+Esto demuestra que, a diferencia del primer escenario, ahora las solicitudes pueden ser atendidas por diferentes instancias del mismo servicio.

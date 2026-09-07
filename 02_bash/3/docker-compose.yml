@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+
+  ubuntu:
+    image: ubuntu:latest
+    volumes:
+      - ./scripts:/scripts
+      - ./logs:/logs
+    command: tail -f /dev/null
