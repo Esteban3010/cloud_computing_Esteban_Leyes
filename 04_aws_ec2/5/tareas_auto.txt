@@ -1,0 +1,5 @@
+n una arquitectura real convendría automatizar todas las tareas repetitivas necesarias para dejar los servidores listos para trabajar. Por ejemplo, la instalación de paquetes y servicios como Nginx o Docker, la configuración inicial del sistema, el inicio automático de servicios, la creación de archivos de configuración y el despliegue de aplicaciones.
+
+También sería útil automatizar la creación de múltiples servidores con la misma configuración, ya que esto permite mantener un entorno consistente y reproducible. De esta forma se reduce el tiempo de configuración, se disminuyen los errores humanos y se facilita el reemplazo o escalamiento de instancias cuando sea necesario.
+
+En general, User Data resulta útil para que una nueva instancia pueda quedar preparada automáticamente desde su primer inicio, sin tener que conectarse por SSH y realizar toda la configuración manualmente.

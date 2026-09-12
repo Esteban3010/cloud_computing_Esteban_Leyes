@@ -1,0 +1,39 @@
+AMI:
+Valor: ami-0b6d9d3d33ba97d99 — Ubuntu Resolute 26.04
+Sirve para definir el sistema operativo y la configuración base con la que se crea la instancia.
+
+Instance Type:
+Valor: t3.micro
+Sirve para definir los recursos de hardware de la instancia, como CPU y memoria RAM.
+
+Region:
+Valor: us-east-1 (Norte de Virginia)
+Sirve para definir la ubicación geográfica de AWS donde se encuentran los recursos.
+
+Availability Zone:
+Valor: 
+Es una ubicación aislada dentro de una región de AWS donde se ejecutan los recursos.
+
+VPC:
+Valor: vpc-07be34e03d275d6dc
+Es la red virtual privada de AWS donde se encuentra la instancia.
+
+Subnet:
+Valor: subnet-02e6db3cd7c119cf8
+Es una subdivisión de la VPC donde se encuentra conectada la instancia.
+
+Public IP:
+Valor: 34.228.159.26
+Permite acceder a la instancia desde Internet, por ejemplo mediante SSH.
+
+Private IP:
+Valor: 172.31.20.237
+Permite identificar y comunicar la instancia dentro de la red privada de AWS.
+
+Security Group:
+Valor: 
+Funciona como un firewall que controla el tráfico que puede entrar y salir de la instancia.
+
+Key Pair:
+Valor: curso-ec2-esteban-key
+Sirve para autenticarse de forma segura al conectarse a la instancia mediante SSH.

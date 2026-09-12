@@ -1,0 +1,11 @@
+1. ¿Qué riesgo existe al abrir SSH al mundo?
+Permite que cualquier persona en Internet intente conectarse al servidor, aumentando el riesgo de ataques de fuerza bruta, intentos de acceso no autorizado y explotación de vulnerabilidades.
+
+2. ¿Qué diferencia existe entre Security Group y firewall dentro del sistema operativo?
+El Security Group controla el tráfico que puede entrar o salir de la instancia desde la infraestructura de AWS. El firewall del sistema operativo aplica reglas directamente dentro de la instancia. Son capas de seguridad diferentes que pueden complementarse.
+
+3. ¿Por qué no debemos exponer PostgreSQL públicamente si no es necesario?
+Porque permitir acceso desde Internet al puerto 5432 aumenta el riesgo de ataques contra la base de datos, intentos de acceso no autorizado y exposición de información. Si únicamente la aplicación necesita conectarse a PostgreSQL, debe mantenerse con acceso interno.
+
+4. ¿Por qué Nginx puede ser el único punto público de entrada?
+Porque Nginx puede recibir las solicitudes públicas mediante los puertos 80/443 y enviarlas internamente a Flask. Así, Flask y la base de datos no necesitan estar expuestos directamente a Internet, reduciendo la superficie de ataque.

@@ -1,0 +1,1 @@
+Al presionar Launch Instance, AWS crea una máquina virtual usando la AMI, el tipo de instancia y la configuración de red seleccionada. La instancia recibe una IP privada y, si está configurada, una IP pública. El Security Group controla el acceso y, cuando la instancia está en estado running, podemos conectarnos mediante SSH utilizando la IP pública y el Key Pair.

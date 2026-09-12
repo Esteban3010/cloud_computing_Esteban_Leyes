@@ -1,0 +1,1 @@
+El host EC2 es la máquina virtual que ejecuta Docker y tiene su propio sistema operativo, red y hostname. El contenedor es un entorno aislado que corre dentro de EC2, por lo que tiene su propio hostname y procesos. EC2 actúa como host y Docker administra los contenedores que se ejecutan dentro de él.

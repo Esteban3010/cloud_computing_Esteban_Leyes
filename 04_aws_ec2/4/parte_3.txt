@@ -1,0 +1,9 @@
+La configuración propuesta sería permitir únicamente los puertos necesarios:
+
+Puerto 80 (HTTP): público para que los usuarios puedan acceder a la aplicación.
+Puerto 443 (HTTPS): público para permitir conexiones seguras.
+Puerto 22 (SSH): restringido únicamente a la IP autorizada del administrador.
+Puerto 5000 (Flask): no público, ya que Nginx se comunica internamente con Flask.
+Puerto 5432 (PostgreSQL): no público, porque la base de datos solo debe ser accesible internamente.
+
+De esta manera se reduce la superficie de exposición y se aplica el principio de mínimo privilegio.

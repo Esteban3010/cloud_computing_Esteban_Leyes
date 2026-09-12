@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    container_name: api
+    environment:
+      - EC2_HOSTNAME=ip-172-31-16-113
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api

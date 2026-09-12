@@ -1,0 +1,3 @@
+El usuario realiza una solicitud desde Internet utilizando la dirección IP pública de la instancia EC2. El Security Group de AWS controla el tráfico entrante y permite el acceso por el puerto 80. La solicitud llega a la instancia EC2, que funciona como host y tiene Docker instalado. Dentro de Docker se ejecuta Nginx, que recibe la solicitud en el puerto 80 y funciona como reverse proxy. Nginx redirige internamente la solicitud hacia el contenedor de Flask por el puerto 5000. Finalmente, Flask procesa la petición y genera la respuesta, que regresa al usuario siguiendo el camino inverso.
+
+Internet → Security Group → EC2 → Docker → Nginx → Flask

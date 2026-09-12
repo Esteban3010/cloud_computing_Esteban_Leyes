@@ -1,0 +1,5 @@
+PID: identifica de forma única cada proceso. Por ejemplo, sshd tiene PID 1016.
+Usuario: indica quién ejecuta el proceso. sshd principal pertenece a root, mientras tu sesión SSH también tiene procesos asociados a ubuntu.
+CPU: los procesos mostrados están usando aproximadamente 0.0%, por lo que no presentan una carga significativa.
+Memoria: el proceso sshd-session con PID 1165 usa aproximadamente 1.3%, mientras los demás consumen menos.
+Comando: indica qué está ejecutando el proceso. Se observan procesos del sistema como /sbin/init, procesos del kernel [kthreadd] y procesos relacionados con la conexión remota sshd

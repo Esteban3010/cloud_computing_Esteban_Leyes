@@ -1,0 +1,1 @@
+ssh -i ~/esteban.pem ubuntu@3.87.144.151

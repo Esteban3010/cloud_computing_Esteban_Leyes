@@ -1,0 +1,4 @@
+Puerto 22 TCP — SSH: está asociado al proceso sshd. Aparece escuchando en 0.0.0.0:22 y [::]:22, es decir, en todas las interfaces IPv4 e IPv6.
+Puerto 53 TCP/UDP — DNS: asociado a systemd-resolve. Está limitado a direcciones locales (127.0.0.53 y 127.0.0.54).
+Puerto 68 UDP — DHCP: asociado a systemd-network, utilizado para la configuración de red de la instancia.
+Puerto 323 UDP — chronyd: asociado a chronyd, utilizado para sincronización de tiempo y limitado a localhost.

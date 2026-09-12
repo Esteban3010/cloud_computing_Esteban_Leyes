@@ -1,0 +1,6 @@
+No, no deben estar los cuatro puertos públicos.
+
+22 (SSH): debe permitirse únicamente desde una IP autorizada para administración.
+80 (HTTP): sí puede ser público, porque permite el acceso de los usuarios a la aplicación.
+5000 (Flask): no debería ser público si Flask está detrás de Nginx.
+5432 (PostgreSQL): no debe ser público; la base de datos debe quedar protegida del acceso directo desde Internet.

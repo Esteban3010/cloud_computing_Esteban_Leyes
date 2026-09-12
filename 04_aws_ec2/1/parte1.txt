@@ -1,0 +1,11 @@
+1. ¿Qué diferencia existe entre una AMI y un Instance Type?
+La AMI define el sistema operativo y el software base que tendrá la instancia, mientras que el Instance Type define los recursos de hardware disponibles, como CPU y memoria RAM.
+
+2. ¿Qué función cumple el Security Group?
+El Security Group funciona como un firewall que controla qué tráfico de red puede entrar y salir de la instancia EC2 mediante reglas.
+
+3. ¿Por qué SSH requiere una autenticación segura?
+Porque SSH permite acceder y controlar remotamente una instancia. Una autenticación segura evita que personas no autorizadas puedan ingresar al servidor.
+
+4. ¿Por qué debemos seleccionar cuidadosamente la región?
+Porque la región determina dónde estarán ubicados físicamente los recursos de AWS. Esto puede afectar la latencia, disponibilidad de servicios y costos.

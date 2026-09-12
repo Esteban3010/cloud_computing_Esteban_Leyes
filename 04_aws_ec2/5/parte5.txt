@@ -1,0 +1,9 @@
+Repetibilidad: La configuración manual debe realizarse nuevamente cada vez que se crea una instancia. Con User Data, el mismo script puede utilizarse en varias instancias y obtener la misma configuración.
+
+Tiempo: La configuración manual requiere ejecutar los comandos uno por uno. Con User Data, las tareas se ejecutan automáticamente durante el inicio de la instancia, reduciendo el trabajo manual.
+
+Errores humanos: En la configuración manual existe mayor posibilidad de cometer errores al escribir comandos u olvidar algún paso. Con User Data, estos errores se reducen porque las instrucciones ya están definidas en el script.
+
+Documentación: En el método manual es necesario documentar los pasos realizados por separado. Con User Data, el propio script sirve como registro de las tareas necesarias para configurar el servidor.
+
+Automatización: La configuración manual depende de que una persona realice cada tarea. User Data permite automatizar la instalación, configuración e inicio de servicios desde el momento en que se crea la instancia.
