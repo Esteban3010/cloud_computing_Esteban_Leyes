@@ -1,0 +1,98 @@
+PARTE 1. ARQUITECTURA INICIAL
+
+¿Qué sucede si EC2 falla?
+La aplicación deja de estar disponible porque Nginx y Flask dependen de esa única instancia.
+
+¿Qué sucede si aumenta el tráfico?
+La instancia puede saturarse en CPU, memoria o conexiones y disminuir su rendimiento.
+
+¿Dónde existe un Single Point of Failure?
+En la única instancia EC2, ya que si falla, todo el servicio queda fuera de funcionamiento.
+
+
+PARTE 2. EVOLUCIÓN
+
+¿Qué componente distribuye el tráfico?
+El Load Balancer distribuye las solicitudes entre las diferentes instancias EC2.
+
+¿Dónde se ejecuta cada instancia?
+Cada aplicación Flask se ejecuta en una instancia EC2 independiente.
+
+¿Por qué distribuirlas entre Availability Zones?
+Para aumentar la disponibilidad. Si una zona falla, las instancias de otra zona pueden continuar atendiendo solicitudes.
+
+
+PARTE 3. STATELESS
+
+Si la primera petición llega a EC2-1 y la siguiente a EC2-2, ambas deberían poder atenderse correctamente sin depender de la instancia anterior.
+
+Si la sesión se guarda solamente en la memoria de EC2-1, EC2-2 no conocerá esa sesión. Por esto conviene que la aplicación sea stateless y que el estado necesario se almacene externamente.
+
+
+PARTE 4. PERSISTENCIA
+
+Los archivos locales de EC2-1 y EC2-2 no necesariamente son el mismo archivo, porque cada instancia tiene su propio almacenamiento.
+
+Una solución sería utilizar almacenamiento compartido como Amazon EFS, que puede ser utilizado simultáneamente por varias instancias EC2. También podría utilizarse S3 dependiendo del tipo de archivo.
+
+
+PARTE 5. AUTO SCALING
+
+¿Qué problema resuelve Auto Scaling?
+Permite aumentar o disminuir automáticamente la cantidad de instancias según la demanda y reemplazar instancias que presenten problemas.
+
+Escalamiento vertical:
+Aumentar los recursos de una misma máquina, por ejemplo, más CPU o RAM.
+
+Escalamiento horizontal:
+Agregar más instancias para repartir la carga.
+
+Métricas de escalamiento:
+Se pueden utilizar métricas como uso de CPU o cantidad de solicitudes. Cuando se supera un umbral, se agregan instancias; cuando la demanda baja, se pueden eliminar.
+
+
+PARTE 6. DISEÑO
+
+Públicos:
+El Load Balancer debe ser accesible desde Internet.
+
+Privados:
+Las instancias EC2 y la base de datos deberían permanecer en la red privada y recibir tráfico únicamente desde los componentes autorizados.
+
+Escalables:
+Las instancias EC2 deben poder aumentar o disminuir mediante Auto Scaling.
+
+Persistentes:
+La base de datos y cualquier almacenamiento compartido deben conservar la información aunque una EC2 sea eliminada.
+
+Monitoreados:
+Load Balancer, EC2, aplicación y base de datos deben ser monitoreados para detectar errores, rendimiento y uso de recursos.
+
+
+RETO FINAL
+Primero la aplicación funciona localmente con Docker. Luego se lleva a una EC2 para ejecutarla en la nube. Después se agregan varias EC2 para mejorar disponibilidad y capacidad. Un Load Balancer distribuye las solicitudes entre ellas y finalmente Auto Scaling permite ajustar automáticamente el número de instancias según la demanda.
+
+Esto se relaciona con Journey to Cloud (J2C) porque representa una evolución progresiva desde una solución local y manual hacia una arquitectura cloud más escalable, disponible y automatizada.
+
+
+COMPARACIÓN: UNA INSTANCIA VS. MÚLTIPLES INSTANCIAS
+
+Con una sola instancia, la arquitectura es más sencilla, pero existe un único punto de falla y su capacidad está limitada a los recursos de esa máquina.
+
+Con múltiples instancias, la carga puede distribuirse, se mejora la disponibilidad y una instancia puede fallar sin necesariamente interrumpir todo el servicio.
+
+
+ESCALABILIDAD HORIZONTAL
+
+La escalabilidad horizontal consiste en agregar más instancias en lugar de aumentar únicamente los recursos de una máquina. Esto permite repartir el tráfico y responder mejor cuando aumenta la demanda.
+
+
+EVOLUCIÓN HACIA UNA ARQUITECTURA MÁS ADMINISTRADA
+
+Load Balancer para distribuir tráfico.
+Auto Scaling para crear o eliminar instancias automáticamente.
+Amazon RDS para utilizar una base de datos administrada.
+Amazon EFS o S3 para evitar depender del almacenamiento local de cada EC2.
+CloudWatch para monitorear métricas, registros y generar alertas.
+
+De esta forma se reduce la administración manual y se obtiene una arquitectura más escalable, disponible y resistente a fallos.
