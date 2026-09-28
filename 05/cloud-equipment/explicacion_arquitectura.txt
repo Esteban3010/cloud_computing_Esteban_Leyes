@@ -1,0 +1,24 @@
+La imagen de la API se crea de forma local utilizando Docker. Una vez construida, se le asigna la dirección del repositorio privado de Amazon ECR y se utiliza docker push para subirla con una versión específica, por ejemplo equipment-api:8.0.
+
+En la instancia EC2, el archivo docker-compose.yml utiliza la imagen que se encuentra almacenada en ECR. Al ejecutar docker compose up -d --pull always, se descarga la imagen y se levantan los contenedores necesarios para la aplicación: la API, PostgreSQL y Nginx.
+
+Cuando un usuario realiza una petición HTTP a la dirección pública de la instancia EC2 por el puerto 80, Nginx recibe primero la solicitud y la redirige hacia la API por el puerto 5000 dentro de la red creada por Docker Compose.
+
+La API desarrollada con Flask recibe la petición y ejecuta el endpoint correspondiente. Si necesita almacenar o consultar datos, se conecta a PostgreSQL mediante el nombre db. Para guardar o consultar documentos en Amazon S3, Flask utiliza boto3 y los permisos proporcionados por el rol IAM asignado a la instancia EC2.
+
+Finalmente, Flask genera la respuesta en formato JSON y la envía nuevamente a Nginx. Nginx recibe esta respuesta y la entrega al usuario a través del puerto 80 de la instancia EC2.
+
+
+FLUJO:
+
+1)Desarrollo local de la aplicación.
+2)Construcción de la imagen con docker build.
+3)Subida de la imagen con docker push.
+4)Almacenamiento de la imagen en Amazon ECR.
+5)EC2 descarga la imagen y ejecuta Docker Compose.
+6)Nginx recibe las solicitudes por el puerto 80.
+7)Nginx redirige las solicitudes a Flask por el puerto 5000.
+8)Flask se comunica con PostgreSQL y Amazon S3.
+9)Flask genera la respuesta en formato JSON.
+10)Nginx recibe la respuesta de Flask.
+11)Nginx entrega la respuesta al usuario.
